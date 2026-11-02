@@ -228,20 +228,62 @@
   // 6. Featured Projects Section Rendering
   // ---------------------------------------------------------------------------
   let currentProjectFilter = 'all';
+  let projectFilterInitialized = false;
 
-  function renderProjects() {
-    if (typeof projectsData === 'undefined') return;
-    const grid = document.getElementById('projects-grid');
-    const filterBtns = document.querySelectorAll('.project-filter-btn');
-    if (!grid) return;
+  function initProjectFilters() {
+    if (projectFilterInitialized) return;
+    const filterContainer = document.getElementById('project-filter-container') || document.querySelector('.project-filter-btn')?.parentElement;
+    if (!filterContainer) return;
 
-    const filtered = projectsData.filter(proj => {
-      if (currentProjectFilter === 'all') return true;
-      return proj.category.toLowerCase().includes(currentProjectFilter.toLowerCase());
+    filterContainer.addEventListener('click', (e) => {
+      const btn = e.target.closest('.project-filter-btn');
+      if (!btn) return;
+
+      const filterBtns = filterContainer.querySelectorAll('.project-filter-btn');
+      filterBtns.forEach(b => {
+        b.classList.remove('bg-violet-600', 'text-white');
+        b.classList.add('bg-white', 'text-slate-600', 'border', 'border-border');
+      });
+      btn.classList.add('bg-violet-600', 'text-white');
+      btn.classList.remove('bg-white', 'text-slate-600', 'border-border');
+
+      currentProjectFilter = (btn.dataset.filter || 'all').trim();
+      renderProjects(false);
     });
 
+    projectFilterInitialized = true;
+  }
+
+  function renderProjects(isInitial = true) {
+    if (typeof projectsData === 'undefined') return;
+    const grid = document.getElementById('projects-grid');
+    if (!grid) return;
+
+    initProjectFilters();
+
+    const normalizedFilter = currentProjectFilter.toLowerCase().replace(/[-\s_]/g, '');
+
+    const filtered = projectsData.filter(proj => {
+      if (normalizedFilter === 'all' || !normalizedFilter) return true;
+      const cat = (proj.category || '').toLowerCase().replace(/[-\s_]/g, '');
+      return cat.includes(normalizedFilter);
+    });
+
+    if (filtered.length === 0) {
+      grid.innerHTML = `
+        <div class="col-span-full py-12 text-center bg-white border border-border rounded-2xl">
+          <div class="w-12 h-12 rounded-full bg-violet-50 text-violet-600 flex items-center justify-center mx-auto mb-3">
+            <i class="fa-solid fa-folder-open text-lg"></i>
+          </div>
+          <h3 class="text-base font-bold text-heading">No projects in this category</h3>
+          <p class="text-sm text-muted mt-1">Select "All Projects" to view all verified repositories.</p>
+        </div>
+      `;
+      return;
+    }
+
     grid.innerHTML = filtered.map((proj, idx) => `
-      <article class="bg-white border border-border rounded-2xl overflow-hidden hover:border-violet-300 transition-all duration-300 flex flex-col group shadow-sm hover:shadow-card-hover" data-reveal data-reveal-delay="${idx * 100}">
+      <article class="bg-white border border-border rounded-2xl overflow-hidden hover:border-violet-300 transition-all duration-300 flex flex-col group shadow-sm hover:shadow-card-hover ${isInitial ? '' : 'is-revealed'}" data-reveal data-reveal-delay="${idx * 100}">
         <div class="relative overflow-hidden aspect-video bg-slate-100 border-b border-border">
           <img 
             src="${proj.image}" 
@@ -309,19 +351,14 @@
       </article>
     `).join('');
 
-    // Attach filter listeners
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        filterBtns.forEach(b => {
-          b.classList.remove('bg-violet-600', 'text-white');
-          b.classList.add('bg-white', 'text-slate-600', 'border', 'border-border');
-        });
-        btn.classList.add('bg-violet-600', 'text-white');
-        btn.classList.remove('bg-white', 'text-slate-600', 'border-border');
-        currentProjectFilter = btn.dataset.filter || 'all';
-        renderProjects();
+    if (!isInitial) {
+      const articles = grid.querySelectorAll('article');
+      articles.forEach((art, i) => {
+        setTimeout(() => {
+          art.classList.add('is-revealed');
+        }, i * 40);
       });
-    });
+    }
   }
 
   // ---------------------------------------------------------------------------
@@ -330,7 +367,7 @@
   let currentBlogCategory = 'all';
   let blogSearchQuery = '';
 
-  function renderBlogs() {
+  function renderBlogs(isInitial = true) {
     if (typeof blogsData === 'undefined') return;
     const grid = document.getElementById('blogs-grid');
     const searchInput = document.getElementById('blog-search-input');
@@ -349,7 +386,7 @@
 
     if (filtered.length === 0) {
       grid.innerHTML = `
-        <div class="col-span-full py-12 text-center">
+        <div class="col-span-full py-12 text-center bg-white border border-border rounded-2xl">
           <div class="w-12 h-12 rounded-full bg-violet-50 text-violet-600 flex items-center justify-center mx-auto mb-3">
             <i class="fa-solid fa-magnifying-glass text-lg"></i>
           </div>
@@ -361,7 +398,7 @@
     }
 
     grid.innerHTML = filtered.map((post, idx) => `
-      <article class="bg-white border border-border rounded-2xl overflow-hidden hover:border-violet-300 transition-all duration-300 flex flex-col group shadow-sm hover:shadow-card-hover" data-reveal data-reveal-delay="${idx * 100}">
+      <article class="bg-white border border-border rounded-2xl overflow-hidden hover:border-violet-300 transition-all duration-300 flex flex-col group shadow-sm hover:shadow-card-hover ${isInitial ? '' : 'is-revealed'}" data-reveal data-reveal-delay="${idx * 100}">
         <a href="article.html?slug=${post.slug}" class="block relative aspect-video bg-slate-100 overflow-hidden border-b border-border">
           <img 
             src="${post.thumbnail}" 
@@ -409,12 +446,21 @@
       </article>
     `).join('');
 
+    if (!isInitial) {
+      const articles = grid.querySelectorAll('article');
+      articles.forEach((art, i) => {
+        setTimeout(() => {
+          art.classList.add('is-revealed');
+        }, i * 40);
+      });
+    }
+
     // Setup search listener once
     if (searchInput && !searchInput.dataset.initialized) {
       searchInput.dataset.initialized = 'true';
       searchInput.addEventListener('input', (e) => {
         blogSearchQuery = e.target.value.trim();
-        renderBlogs();
+        renderBlogs(false);
       });
     }
 
@@ -431,7 +477,7 @@
         btn.classList.add('bg-violet-600', 'text-white');
         btn.classList.remove('bg-white', 'text-slate-600', 'border-border');
         currentBlogCategory = btn.dataset.category || 'all';
-        renderBlogs();
+        renderBlogs(false);
       });
     }
   }
@@ -789,10 +835,11 @@
     // Requirement 19: Only display after a valid phone number has been configured!
     const whatsappBtn = document.getElementById('whatsapp-floating-btn');
     if (whatsappBtn && typeof siteConfig !== 'undefined') {
-      const num = (siteConfig.social.whatsappNumber || '').trim();
-      if (num && num.length >= 7) {
+      const rawNum = (siteConfig.social.whatsappNumber || '').trim();
+      const cleanNum = rawNum.replace(/[^0-9]/g, '');
+      if (cleanNum && cleanNum.length >= 7) {
         whatsappBtn.classList.remove('hidden');
-        whatsappBtn.href = `https://wa.me/${encodeURIComponent(num)}?text=${encodeURIComponent('Hello Purnima, I came across your portfolio and would love to connect!')}`;
+        whatsappBtn.href = `https://wa.me/${cleanNum}?text=${encodeURIComponent('Hello Purnima, I came across your portfolio and would love to connect!')}`;
       } else {
         whatsappBtn.classList.add('hidden');
       }

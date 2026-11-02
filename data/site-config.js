@@ -27,9 +27,9 @@ const siteConfig = {
     website: "https://www.purnimagupta.com.np/",
     // Configurable: empty by default per specification rules.
     // Floating WhatsApp button appears only when a valid phone number is supplied.
-    whatsappNumber: "", 
+    whatsappNumber: "+977 9819099126", 
     // Configurable: channel link will show once confirmed by owner.
-    youtubeChannel: ""
+    youtubeChannel: "https://www.tiktok.com/@purnima_9660?lang=en-GB"
   },
 
   skills: [

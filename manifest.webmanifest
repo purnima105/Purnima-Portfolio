@@ -1,0 +1,25 @@
+{
+  "name": "Purnima Gupta — Frontend Developer & UI/UX Designer",
+  "short_name": "Purnima Gupta",
+  "description": "Official portfolio, technical blog, and software project showcase of Purnima Gupta, frontend developer and UI/UX designer based in Kathmandu, Nepal.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#7C3AED",
+  "icons": [
+    {
+      "src": "/assets/images/favicon/favicon.svg",
+      "sizes": "64x64 128x128 256x256 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": [
+    "portfolio",
+    "education",
+    "technology",
+    "development"
+  ],
+  "lang": "en-US"
+}

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://www.purnimagupta.com.np/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.purnimagupta.com.np/assets/images/profile/purnima.webp</image:loc>
+      <image:title>Purnima Gupta — Frontend Developer &amp; UI/UX Designer</image:title>
+      <image:caption>Portrait of Purnima Gupta, frontend developer and BIM student in Kathmandu, Nepal</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.purnimagupta.com.np/article.html?slug=accessible-web-interfaces-wcag-guide</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.purnimagupta.com.np/assets/images/blogs/accessibility-guide.svg</image:loc>
+      <image:title>Building Accessible Web Interfaces: A Practical WCAG 2.2 Guide</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.purnimagupta.com.np/article.html?slug=mastering-css-grid-and-flexbox</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.purnimagupta.com.np/assets/images/blogs/css-grid-flexbox.svg</image:loc>
+      <image:title>Mastering CSS Grid and Flexbox: A Modern Layout Architecture Guide</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.purnimagupta.com.np/article.html?slug=clean-dom-manipulation-vanilla-javascript</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.purnimagupta.com.np/assets/images/blogs/vanilla-js-dom.svg</image:loc>
+      <image:title>Clean DOM Manipulation with Vanilla JavaScript</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.purnimagupta.com.np/article.html?slug=ui-ux-design-heuristics-for-developers</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.purnimagupta.com.np/assets/images/blogs/ui-ux-design.svg</image:loc>
+      <image:title>UI/UX Design Heuristics for Frontend Developers</image:title>
+    </image:image>
+  </url>
+</urlset>

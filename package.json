@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "Production personal portfolio, technical blog and showcase for Purnima Gupta",
   "scripts": {
+    "setup": "node scripts/setup.js",
+    "test:services": "node scripts/test-services.js",
     "build:css": "tailwindcss -i ./assets/css/input.css -o ./assets/css/style.css --minify",
     "watch:css": "tailwindcss -i ./assets/css/input.css -o ./assets/css/style.css --watch",
     "build": "npm run build:css"
