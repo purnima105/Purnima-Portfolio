@@ -202,3 +202,5 @@ All website content is cleanly separated from rendering logic:
 - [x] Real downloadable PDF CV at `assets/documents/purnima-gupta-cv.pdf`.
 - [x] WCAG 2.2 AA compliant: High-contrast text, visible focus rings, aria attributes, reduced-motion support.
 - [x] Complete SEO, Open Graph, Twitter card, canonical URL, robots.txt, and sitemap.xml.
+#   P u r n i m a - P o r t f o l i o  
+ 
