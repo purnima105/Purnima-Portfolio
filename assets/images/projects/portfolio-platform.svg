@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <rect width="800" height="450" fill="#F8FAFC"/>
+  <!-- Browser Chrome -->
+  <rect x="40" y="30" width="720" height="390" rx="12" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+  <rect x="40" y="30" width="720" height="40" rx="12" fill="#F1F5F9"/>
+  <circle cx="65" cy="50" r="5" fill="#EF4444"/>
+  <circle cx="82" cy="50" r="5" fill="#F59E0B"/>
+  <circle cx="99" cy="50" r="5" fill="#10B981"/>
+  <rect x="130" y="40" width="400" height="20" rx="4" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <text x="145" y="54" font-family="Inter, sans-serif" font-size="11" fill="#64748B">https://www.purnimagupta.com.np</text>
+  
+  <!-- Content Mockup -->
+  <!-- Nav -->
+  <line x1="40" y1="105" x2="760" y2="105" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="70" y="94" font-family="Inter, sans-serif" font-size="16" font-weight="bold" fill="#0F172A">Purnima Gupta</text>
+  <rect x="580" y="80" width="130" height="28" rx="6" fill="#7C3AED"/>
+  <text x="645" y="98" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#FFFFFF" text-anchor="middle">Hire Me</text>
+  
+  <!-- Hero Area -->
+  <rect x="70" y="130" width="150" height="22" rx="11" fill="#F5F3FF" stroke="#DDD6FE"/>
+  <circle cx="82" cy="141" r="3" fill="#10B981"/>
+  <text x="94" y="145" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#7C3AED">Available for opportunities</text>
+  
+  <text x="70" y="185" font-family="Inter, sans-serif" font-size="24" font-weight="800" fill="#0F172A">Designing thoughtful digital</text>
+  <text x="70" y="215" font-family="Inter, sans-serif" font-size="24" font-weight="800" fill="#7C3AED">experiences &amp; frontend systems</text>
+  
+  <rect x="70" y="240" width="300" height="10" rx="4" fill="#E2E8F0"/>
+  <rect x="70" y="258" width="240" height="10" rx="4" fill="#E2E8F0"/>
+  
+  <rect x="70" y="290" width="110" height="34" rx="6" fill="#7C3AED"/>
+  <text x="125" y="311" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#FFFFFF" text-anchor="middle">View Projects</text>
+  
+  <rect x="195" y="290" width="110" height="34" rx="6" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <text x="250" y="311" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#0F172A" text-anchor="middle">Download CV</text>
+  
+  <!-- Hero Card right side -->
+  <rect x="460" y="135" width="250" height="235" rx="12" fill="#F5F3FF" stroke="#C4B5FD" stroke-width="1.5"/>
+  <circle cx="585" cy="210" r="50" fill="#EDE9FE" stroke="#7C3AED" stroke-width="2"/>
+  <text x="585" y="285" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#0F172A" text-anchor="middle">Purnima Gupta</text>
+  <text x="585" y="304" font-family="Inter, sans-serif" font-size="11" fill="#7C3AED" text-anchor="middle">Frontend Developer &amp; UI/UX</text>
+</svg>
